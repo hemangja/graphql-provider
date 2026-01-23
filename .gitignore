@@ -1,0 +1,10 @@
+target
+.classpath
+.settings
+.project
+bin
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
