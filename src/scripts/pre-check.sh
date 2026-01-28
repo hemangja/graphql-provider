@@ -2,10 +2,10 @@
 
 echo "Checking GraphQL contract compatibility..."
 
-git show origin/prod:src/contracts/product-released.graphqls > src/contracts/product-released.graphqls
-
 BASELINE_SCHEMA="src/contracts/product-released.graphqls"
 CURRENT_SCHEMA="src/main/resources/graphql/product-current.graphqls"
+
+git show origin/prod:$CURRENT_SCHEMA > $BASELINE_SCHEMA
 
 if [ ! -f "$BASELINE_SCHEMA" ]; then
   echo "Baseline schema not found. Skipping check."
