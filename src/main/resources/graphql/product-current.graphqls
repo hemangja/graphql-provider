@@ -1,7 +1,8 @@
 type Product {
   id: ID!
   name: String!
-  price: String!
+  price: Float!
+  description: String
 }
 
 type Query {
