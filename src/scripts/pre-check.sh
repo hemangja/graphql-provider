@@ -20,7 +20,7 @@ RESULT=$?
 
 rm src/contracts/product-released.graphqls
 
-if [ $	 -ne 0 ]; then
+if [ $RESULT -ne 0 ]; then
   echo ""
   echo "❌ Breaking GraphQL contract changes detected."
   echo "Commit blocked."
