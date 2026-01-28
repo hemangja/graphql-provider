@@ -19,9 +19,8 @@ graphql-inspector diff \
 
 RESULT=$?
 
-rm src/contracts/product-released.graphqls
+rm $BASELINE_SCHEMA
 
-# Store result for commit-msg hook
 if [ $RESULT -ne 0 ]; then
   echo "breaking" > "$TMP_FILE"
 else
