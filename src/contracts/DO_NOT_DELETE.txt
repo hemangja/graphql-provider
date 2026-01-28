@@ -1,0 +1,1 @@
+do not delete this file or the folder it is in. it is required to ensure that the "contracts" folder is included in the compiled output of the package.
