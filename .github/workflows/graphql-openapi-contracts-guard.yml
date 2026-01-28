@@ -1,0 +1,15 @@
+name: GraphQL and OpenAPI Contract Guard
+
+on: [pull_request]
+
+jobs:
+  graphql-openapi-contract-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install GraphQL Inspector
+        run: npm install -g @graphql-inspector/cli
+
+      - name: Execute script
+        run: /bin/sh src/scripts/pre-check.sh
