@@ -20,12 +20,11 @@ RESULT=$?
 
 rm src/contracts/product-released.graphqls
 
+# Store result for commit-msg hook
 if [ $RESULT -ne 0 ]; then
-  echo ""
-  echo "❌ Breaking GraphQL contract changes detected."
-  echo "Commit blocked."
-  exit 1
+  echo "breaking" > .git/graphql-breaking.tmp
+else
+  rm -f .git/graphql-breaking.tmp
 fi
 
-echo "✅ GraphQL contract is backward compatible."
 exit 0
