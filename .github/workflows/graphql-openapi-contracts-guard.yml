@@ -20,4 +20,4 @@ jobs:
         run: npm install -g @graphql-inspector/cli
 
       - name: Execute script
-        run: bash src/scripts/pre-check.sh
+        run: /bin/sh src/scripts/pre-check.sh
