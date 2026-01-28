@@ -1,7 +1,6 @@
 #!/bin/bash
 
 echo "Checking GraphQL contract compatibility..."
-
 BASELINE_SCHEMA="src/contracts/product-released.graphqls"
 CURRENT_SCHEMA="src/main/resources/graphql/product-current.graphqls"
 TMP_FILE=".git/graphql-breaking.tmp"
