@@ -6,7 +6,15 @@ jobs:
   graphql-openapi-contract-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        # If the 'prod' branch is a new one, you might need to fetch all history
+        # (fetch-depth: 0) to ensure it's available.
+        with:
+          fetch-depth: 0 
+
+      - name: Fetch prod branch
+        run: git fetch origin prod
 
       - name: Install GraphQL Inspector
         run: npm install -g @graphql-inspector/cli
