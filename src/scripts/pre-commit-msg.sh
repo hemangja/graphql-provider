@@ -1,7 +1,8 @@
 #!/bin/bash
 
-COMMIT_MSG_FILE=$1
 APPROVAL_TAG="\[BREAKING-APPROVED\]"
+TMP_FILE=".git/graphql-breaking.tmp"
+COMMIT_MSG_FILE=".git/COMMIT_EDITMSG"
 
 # No breaking change → allow commit
 if [ ! -f .git/graphql-breaking.tmp ]; then
@@ -9,10 +10,16 @@ if [ ! -f .git/graphql-breaking.tmp ]; then
   exit 0
 fi
 
+# Commit message file MUST exist
+if [ ! -f "$COMMIT_MSG_FILE" ]; then
+  echo "⚠️ Cannot find commit message file. Blocking commit."
+  exit 1
+fi
+
 # Breaking change detected → require approval
 if grep -q "$APPROVAL_TAG" "$COMMIT_MSG_FILE"; then
   echo "⚠️ Breaking change approved via commit message."
-  rm -f .git/graphql-breaking.tmp
+  rm -f $TMP_FILE
   exit 0
 fi
 

@@ -4,6 +4,7 @@ echo "Checking GraphQL contract compatibility..."
 
 BASELINE_SCHEMA="src/contracts/product-released.graphqls"
 CURRENT_SCHEMA="src/main/resources/graphql/product-current.graphqls"
+TMP_FILE=".git/graphql-breaking.tmp"
 
 git show origin/prod:$CURRENT_SCHEMA > $BASELINE_SCHEMA
 
@@ -22,9 +23,9 @@ rm src/contracts/product-released.graphqls
 
 # Store result for commit-msg hook
 if [ $RESULT -ne 0 ]; then
-  echo "breaking" > .git/graphql-breaking.tmp
+  echo "breaking" > "$TMP_FILE"
 else
-  rm -f .git/graphql-breaking.tmp
+  rm -f $TMP_FILE
 fi
 
 exit 0
