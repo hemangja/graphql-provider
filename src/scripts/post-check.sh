@@ -9,7 +9,8 @@ if [ ! -f $TMP_FILE ]; then
 fi
 
 # Breaking change detected → require approval
-if [[ "${{ github.event.pull_request.labels.*.name }}" =~ approved-breaking-change ]]; then
+# (Example using environment variable)
+if [[ "$PR_LABELS" == *"approved-breaking-change"* ]]; then
   echo "Breaking change approved via PR label."
   
   rm -f $TMP_FILE
