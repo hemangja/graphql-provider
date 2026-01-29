@@ -3,7 +3,6 @@ type Product {
   name: String!
   price: String!
   description: String
-  inStock: Boolean!
 }
 
 type Query {

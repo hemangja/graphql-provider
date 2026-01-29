@@ -40,6 +40,7 @@ components:
         - id
         - name
         - price
+        - inStock
       properties:
         id:
           type: string
@@ -54,6 +55,4 @@ components:
           type: string
           nullable: true
           description: Optional product description
-        inStock:
-          type: boolean
-          description: Availability of the product
+
