@@ -6,11 +6,11 @@ echo "**************************************************************************
 echo ""
 echo ""
 
-echo "Checking GraphQL contract compatibility..."
+echo "Checking OpenAPI contract compatibility..."
 
-BASELINE_SCHEMA="src/contracts/product-released.graphqls"
-CURRENT_SCHEMA="src/main/resources/graphql/product-current.graphqls"
-TMP_FILE=".git/graphql-breaking.tmp"
+BASELINE_SCHEMA="src/contracts/product-released.yml"
+CURRENT_SCHEMA="src/main/resources/openapi/product-current.yml"
+TMP_FILE=".git/openapi-breaking.tmp"
 
 git show origin/prod:$CURRENT_SCHEMA > $BASELINE_SCHEMA
 
@@ -19,7 +19,8 @@ if [ ! -f "$BASELINE_SCHEMA" ]; then
   exit 0
 fi
 
-graphql-inspector diff \
+java -jar tools/openapi-diff-cli.jar \
+  --fail-on-incompatible \
   "$BASELINE_SCHEMA" \
   "$CURRENT_SCHEMA"
 
