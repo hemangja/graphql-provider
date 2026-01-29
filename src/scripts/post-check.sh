@@ -10,13 +10,13 @@ fi
 
 # Breaking change detected → require approval
 # (Example using environment variable)
-if [ "$PR_LABELS" == *"approved-breaking-change"* ]; then
-  echo "Breaking change approved via PR label."
-  
-  rm -f $TMP_FILE
-  
-  exit 0
-fi
+case "$PR_LABELS" in
+  *approved-breaking-change*)
+    echo "Breaking change approved via PR label."
+    rm -f "$TMP_FILE"
+    exit 0
+    ;;
+esac
 
 echo ""
 echo "❌ Breaking GraphQL contract change detected."
