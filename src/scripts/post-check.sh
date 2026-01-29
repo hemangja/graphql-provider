@@ -23,8 +23,13 @@ rm -f "$BASELINE_SCHEMA"
 
 if [ $RESULT -ne 0 ]; then
   echo "breaking" > "$TMP_FILE"
+  echo ""
+  echo "❌ Breaking GraphQL contract changes detected."
+  echo "Commit blocked."
+  exit 1
 else
   rm -f "$TMP_FILE"
 fi
 
+echo "✅ GraphQL contract is backward compatible."
 exit 0
