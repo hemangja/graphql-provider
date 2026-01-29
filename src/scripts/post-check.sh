@@ -26,4 +26,5 @@ echo ""
 echo "❌ Breaking GraphQL contract change detected."
 echo "❌ Missing required PR label: approved-breaking-change"
 echo "PR merging blocked."
+
 exit 1
