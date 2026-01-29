@@ -39,7 +39,6 @@ components:
       required:
         - id
         - name
-        - price
       properties:
         id:
           type: string
@@ -47,13 +46,8 @@ components:
         name:
           type: string
           description: Product name
-        price:
-          type: string
-          description: Product price
         description:
           type: string
           nullable: true
           description: Optional product description
-        inStock:
-          type: boolean
-          description: Availability of the product
+
