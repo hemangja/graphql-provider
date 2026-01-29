@@ -3,6 +3,7 @@ type Product {
   name: String!
   price: String!
   description: String
+  
 }
 
 type Query {
