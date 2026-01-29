@@ -47,6 +47,9 @@ components:
         name:
           type: string
           description: Product name
+        price:
+          type: string
+          description: Product price
         description:
           type: string
           nullable: true
