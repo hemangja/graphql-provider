@@ -24,7 +24,7 @@ fi
 
 # Breaking change detected → require approval
 if grep -q "$APPROVAL_TAG" "$COMMIT_MSG_FILE"; then
-  echo "⚠️ Breaking change approved via commit message."
+  echo "⚠️ Breaking GraphQL contract change approved via commit message."
   rm -f $TMP_FILE
   exit 0
 fi

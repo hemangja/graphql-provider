@@ -1,7 +1,7 @@
 type Product {
   id: ID!
   name: String!
-  price1: String!
+  price: String!
   description: String
   
 }

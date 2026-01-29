@@ -22,7 +22,7 @@ echo "PR_LABELS: $PR_LABELS"
 
 case "$PR_LABELS" in
   *approved-breaking-change*)
-    echo "Breaking change approved via PR label."
+    echo "Breaking GraphQL contract change approved via PR label."
     rm -f "$TMP_FILE"
     exit 0
     ;;
