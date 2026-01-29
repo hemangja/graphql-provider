@@ -17,9 +17,17 @@ else
 fi
 
 echo "Download OpenAPI Diff CLI tool..."
+JAR_PATH="./tools/openapi-diff-cli.jar"
 mkdir -p tools
-curl -L https://repo1.maven.org/maven2/org/openapitools/openapidiff/openapi-diff-cli/2.1.7/openapi-diff-cli-2.1.7-all.jar \
-          -o tools/openapi-diff-cli.jar
+if [ -f "$JAR_PATH" ]; then
+  echo "OpenAPI Diff CLI already downloaded."
+  exit 0
+else
+  echo "Downloading OpenAPI Diff CLI..."
+  curl -L https://repo1.maven.org/maven2/org/openapitools/openapidiff/openapi-diff-cli/2.1.7/openapi-diff-cli-2.1.7-all.jar \
+          -o "$JAR_PATH"
+fi
+
 ls -la tools/
 
 echo "Fetch prod branch..."
