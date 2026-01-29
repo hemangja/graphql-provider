@@ -8,3 +8,4 @@ bin
 *.bak
 *.swp
 .DS_Store
+tools
