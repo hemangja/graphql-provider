@@ -47,7 +47,7 @@ components:
         name:
           type: string
           description: Product name
-        price:
+        price12:
           type: string
           description: Product price
         description:
