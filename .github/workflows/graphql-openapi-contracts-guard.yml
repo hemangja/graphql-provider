@@ -33,3 +33,11 @@ jobs:
         run: /bin/sh src/scripts/post-graphql-check.sh
         env:
           PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ' ') }}
+
+      - name: OpenAPI - Execute pre script
+        run: /bin/sh src/scripts/pre-openapi-check.sh
+
+      - name: OpenAPI - Execute post script
+        run: /bin/sh src/scripts/post-openapi-check.sh
+        env:
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ' ') }}
