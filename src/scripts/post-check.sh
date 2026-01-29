@@ -10,7 +10,7 @@ fi
 
 # Breaking change detected → require approval
 # (Example using environment variable)
-if [[ "$PR_LABELS" == *"approved-breaking-change"* ]]; then
+if [ "$PR_LABELS" == *"approved-breaking-change"* ]; then
   echo "Breaking change approved via PR label."
   
   rm -f $TMP_FILE
