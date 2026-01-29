@@ -54,3 +54,6 @@ components:
           type: string
           nullable: true
           description: Optional product description
+        inStock:
+          type: boolean
+          description: Availability of the product
