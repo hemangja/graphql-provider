@@ -10,6 +10,8 @@ fi
 
 # Breaking change detected → require approval
 # (Example using environment variable)
+echo "$PR_LABELS"
+
 case "$PR_LABELS" in
   *approved-breaking-change*)
     echo "Breaking change approved via PR label."
