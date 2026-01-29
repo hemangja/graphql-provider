@@ -11,7 +11,9 @@ fi
 # Breaking change detected → require approval
 if [[ "${{ github.event.pull_request.labels.*.name }}" =~ approved-breaking-change ]]; then
   echo "Breaking change approved via PR label."
+  
   rm -f $TMP_FILE
+  
   exit 0
 fi
 
