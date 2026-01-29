@@ -1,7 +1,20 @@
 #!/bin/bash
 
+echo ""
+echo ""
+echo "Installing required libraries for contract checks..."
+echo "******************************************************************************"
+echo ""
+echo ""
+
 echo "Install GraphQL Inspector CLI tool..."
-npm install -g @graphql-inspector/cli
+NPM_PACKAGE_NAME="@graphql-inspector/cli"
+if ! npm list -g $NPM_PACKAGE_NAME --depth=0 >/dev/null 2>&1; then
+  echo "GraphQL Inspector CLI not found, installing..."
+  npm install -g $NPM_PACKAGE_NAME
+else
+  echo "GraphQL Inspector CLI already installed."
+fi
 
 echo "Download OpenAPI Diff CLI tool..."
 mkdir -p tools

@@ -6,11 +6,11 @@ echo "**************************************************************************
 echo ""
 echo ""
 
-TMP_FILE=".git/graphql-breaking.tmp"
+TMP_FILE=".git/openapi-breaking.tmp"
 
 # No breaking change → allow commit
 if [ ! -f $TMP_FILE ]; then
-  echo "✅ GraphQL contract is backward compatible."
+  echo "✅ OpenAPI contract is backward compatible."
   exit 0
 fi
 
@@ -29,7 +29,7 @@ case "$PR_LABELS" in
 esac
 
 echo ""
-echo "❌ Breaking GraphQL contract change detected."
+echo "❌ Breaking OpenAPI contract change detected."
 echo "❌ Missing required PR label: approved-breaking-change"
 echo "PR merging blocked."
 
