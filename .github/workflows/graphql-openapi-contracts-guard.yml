@@ -26,10 +26,10 @@ jobs:
       - name: Execute install libs script
         run: /bin/sh src/scripts/install-libs.sh
 
-      - name: Execute pre script
-        run: /bin/sh src/scripts/pre-check.sh
+      - name: GraphQL - Execute pre script
+        run: /bin/sh src/scripts/pre-graphql-check.sh
 
-      - name: Execute post script
-        run: /bin/sh src/scripts/post-check.sh
+      - name: GraphQL - Execute post script
+        run: /bin/sh src/scripts/post-graphql-check.sh
         env:
           PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ' ') }}
