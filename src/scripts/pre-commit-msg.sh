@@ -5,7 +5,7 @@ TMP_FILE=".git/graphql-breaking.tmp"
 COMMIT_MSG_FILE=".git/COMMIT_EDITMSG"
 
 # No breaking change → allow commit
-if [ ! -f .git/graphql-breaking.tmp ]; then
+if [ ! -f $TMP_FILE ]; then
   echo "✅ GraphQL contract is backward compatible."
   exit 0
 fi

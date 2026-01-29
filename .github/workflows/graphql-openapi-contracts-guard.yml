@@ -19,5 +19,8 @@ jobs:
       - name: Install GraphQL Inspector
         run: npm install -g @graphql-inspector/cli
 
-      - name: Execute script
+      - name: Execute pre script
         run: /bin/sh src/scripts/pre-check.sh
+
+      - name: Execute post script
+        run: /bin/sh src/scripts/post-check.sh
