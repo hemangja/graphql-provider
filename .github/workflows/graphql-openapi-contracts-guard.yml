@@ -1,6 +1,13 @@
 name: GraphQL and OpenAPI Contract Guard
 
-on: [pull_request]
+on: 
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - labeled
+      - unlabeled
 
 jobs:
   graphql-openapi-contract-check:
@@ -12,6 +19,9 @@ jobs:
         # (fetch-depth: 0) to ensure it's available.
         with:
           fetch-depth: 0 
+
+      - name: Run a script
+        run: echo "Workflow triggered by ${{ github.event.action }} event"
 
       - name: Fetch prod branch
         run: git fetch origin prod
