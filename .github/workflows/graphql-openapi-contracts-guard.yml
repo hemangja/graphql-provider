@@ -23,11 +23,8 @@ jobs:
       - name: Run a script
         run: echo "Workflow triggered by ${{ github.event.action }} event"
 
-      - name: Fetch prod branch
-        run: git fetch origin prod
-
-      - name: Install GraphQL Inspector
-        run: npm install -g @graphql-inspector/cli
+      - name: Execute install libs script
+        run: /bin/sh src/scripts/install-libs.sh
 
       - name: Execute pre script
         run: /bin/sh src/scripts/pre-check.sh
