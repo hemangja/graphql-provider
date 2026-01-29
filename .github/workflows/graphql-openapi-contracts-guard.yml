@@ -24,3 +24,5 @@ jobs:
 
       - name: Execute post script
         run: /bin/sh src/scripts/post-check.sh
+        env:
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ' ') }}
