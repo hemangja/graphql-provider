@@ -10,7 +10,7 @@ fi
 
 # Breaking change detected → require approval
 # (Example using environment variable)
-echo "$PR_LABELS"
+echo "${{ github.event.pull_request.labels.*.name }}"
 
 case "$PR_LABELS" in
   *approved-breaking-change*)
